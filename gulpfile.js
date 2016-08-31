@@ -55,7 +55,7 @@ gulp.task('en', function() {
       .pipe(gulp.dest('lib/i18n/'))
 });
 
-gulp.task('build', ['blocks', 'blockly', 'en', 'lua']);
+gulp.task('build', ['blocks', 'blockly', 'en', 'js', 'php', 'dart', 'python', 'lua']);
 
 
 
