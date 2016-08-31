@@ -42,6 +42,12 @@ gulp.task('php', function() {
       .pipe(gulp.dest('lib'))
 });
 
+gulp.task('lua', function() {
+  return gulp.src('blockly/lua_compressed.js')
+      .pipe(insert.wrap('module.exports = function(Blockly){', 'return Blockly.Lua;}'))
+      .pipe(gulp.dest('lib'))
+});
+
 gulp.task('en', function() {
   return gulp.src('blockly/msg/js/en.js')
       .pipe(replace(/goog\.[^\n]+/g, ''))
@@ -49,7 +55,7 @@ gulp.task('en', function() {
       .pipe(gulp.dest('lib/i18n/'))
 });
 
-gulp.task('build', ['blocks', 'blockly', 'en', 'js', 'php', 'dart', 'python']);
+gulp.task('build', ['blocks', 'blockly', 'en', 'lua']);
 
 
 
